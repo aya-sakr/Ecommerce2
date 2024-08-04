@@ -1,0 +1,18 @@
+body {
+	margin-top: 20px;
+}
+.col-xs-8
+{
+  width: 100%;
+}
+.button{
+  font-size: 22px;
+
+}
+img{
+  max-width: 100px;
+}
+.mins,.blus{
+  border-radius: 4px;
+  /* padding: 10px; */
+}

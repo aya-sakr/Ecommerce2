@@ -1,0 +1,95 @@
+
+  <div class="row w-100">
+    <div class="col-xs-8">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <div class="panel-title">
+            <div class="row">
+              <div class="col-xs-6">
+                <h5>
+                  <span class="glyphicon glyphicon-shopping-cart"></span>
+                  Shopping Cart
+                </h5>
+                <p class="text-dark">
+                  You have <label class="text-danger">{{cartProduct.length}}</label>item in your cart
+                </p>
+              </div>
+              <div class="col-xs-6 mt-4">
+                <button type="button" (click)="clearData()" class="btn btn-danger btn-sm btn-block button">
+                  Clear shopping cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-body m-2" *ngFor="let item of cartProduct ;let index = index ">
+          <div class="row">
+            <div class="col-xs-2">
+              <img class="img-responsive" src="{{ item.product.image }}" />
+            </div>
+
+            <div class="col-xs-3">
+              <h4 class="product-name">
+                <strong>{{ item.product.title }}</strong>
+              </h4>
+            </div>
+            <div class="col-xs-7 p-2">
+              <div class="col-xs-3 text-center">
+                <h5>
+                  <strong>Price</strong>
+                </h5>
+                <h4>{{ item.product.price }}L.E</h4>
+              </div>
+              <div class="col-xs-4 text-center">
+                <div class="mb-3 mt-2"><strong>Quantity</strong></div>
+                <div class="d-flex justify-content-between">
+                  <button type="button" (click)="mins(index)" class="bt btn-dark mr-4 mins">-</button>
+                  <input
+                    type="text"
+                    class="form-control input-sm text-center "
+                    value="1"
+                    (change)="detectChange()"
+                    [(ngModel)]="item.quantity"
+                  />
+                  <button type="button" (click)="blus(index)" class="bt btn-dark ml-4 blus ">+</button>
+                </div>
+
+                <br />
+              </div>
+              <div class="col-xs-3 text-center">
+                <h5>
+                  <strong>Total</strong>
+                </h5>
+                <h4>{{ item.product.price * item.quantity }}L.E</h4>
+              </div>
+              <div class="col-xs-2 text-center mt-4">
+                  <button type="button " (click)="deletItem()" class="btn btn-danger">Delet</button>
+              </div>
+
+
+            </div>
+
+
+            </div>
+
+          </div>
+
+          <div class="panel-footer">
+            <div class="row text-center">
+              <div class="col-xs-9">
+                <h4 class="text-right">Total : <strong>{{total}} </strong></h4>
+              </div>
+              <div class="col-xs-3">
+                <button type="button" (click)="addCart()" class="btn btn-success btn-block">
+                  Order Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="alert alert-success" role="alert" *ngIf="success"><strong>Well done</strong>your order successfuly send</div>
+
+

@@ -1,0 +1,7 @@
+<label for="" class="my-2">{{title}}:</label>
+    <select class="form-control" (change)="detectChages($event)">
+      <option>All</option>
+      <option value="{{ option }}" *ngFor="let option of data">
+        {{ option }}
+      </option>
+    </select>
